@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="GovkrBreakedown" this:GovkrBreakedown.in_excelName="개인정보20200616152350" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="GovkrBreakedown" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_excelName" Type="InArgument(x:String)" />
   </x:Members>
@@ -58,7 +58,6 @@
       <AssemblyReference>UiPath.CV</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <sap:WorkflowViewStateService.ViewState>
@@ -72,11 +71,7 @@
       <Variable x:TypeArguments="x:Int32" Name="test" />
       <Variable x:TypeArguments="x:Int32" Name="lastMonth" />
       <Variable x:TypeArguments="sd:DataTable" Name="dataTable" />
-      <Variable x:TypeArguments="x:Int32" Name="countRow">
-        <Variable.Default>
-          <Literal x:TypeArguments="x:Int32" />
-        </Variable.Default>
-      </Variable>
+      <Variable x:TypeArguments="x:Int32" Default="0" Name="countRow" />
       <Variable x:TypeArguments="x:String" Name="setMonth" />
       <Variable x:TypeArguments="x:String" Name="rowvalue" />
       <Variable x:TypeArguments="x:String" Name="roop" />
@@ -379,7 +374,7 @@
                                                     </ui:CursorPosition>
                                                   </ui:Click.CursorPosition>
                                                   <ui:Click.Target>
-                                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ab5e34a1-86af-4c6a-a389-6ec9542ef9bd" InformativeScreenshot="45a717bf65c53b9d1c8b659c7d992dd2" Selector="&lt;webctrl aaname='1페이지' parentid='EncryptionAreaID_0' tag='A' /&gt;&#xD;&#xA;">
+                                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ab5e34a1-86af-4c6a-a389-6ec9542ef9bd" InformativeScreenshot="45a717bf65c53b9d1c8b659c7d992dd2" Selector="&lt;webctrl aaname='1페이지' parentid='EncryptionAreaID_0' tag='A' /&gt;&#xA;">
                                                       <ui:Target.TimeoutMS>
                                                         <InArgument x:TypeArguments="x:Int32" />
                                                       </ui:Target.TimeoutMS>
@@ -683,7 +678,7 @@
                                 </ui:CursorPosition>
                               </ui:Click.CursorPosition>
                               <ui:Click.Target>
-                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="69dfe25e-2e1c-4cb7-adaa-841ff7db5fea" InformativeScreenshot="1b03d2b7f5eee7a158e92d536acbcbff" Selector="&lt;webctrl aaname='로그아웃' isleaf='1' tag='A' /&gt;&#xD;&#xA;">
+                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="69dfe25e-2e1c-4cb7-adaa-841ff7db5fea" InformativeScreenshot="1b03d2b7f5eee7a158e92d536acbcbff" Selector="&lt;webctrl aaname='로그아웃' isleaf='1' tag='A' /&gt;&#xA;">
                                   <ui:Target.TimeoutMS>
                                     <InArgument x:TypeArguments="x:Int32" />
                                   </ui:Target.TimeoutMS>
