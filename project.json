@@ -3,8 +3,10 @@
   "description": "Govkr_Report",
   "main": "Main.xaml",
   "dependencies": {
+    "System.IO.Compression": "[4.3.0]",
     "UiPath.Credentials.Activities": "[1.1.6479.13204]",
     "UiPath.Excel.Activities": "[2.8.5]",
+    "UiPath.Mail.Activities": "[1.8.5]",
     "UiPath.System.Activities": "[20.4.0]",
     "UiPath.UIAutomation.Activities": "[20.4.1]"
   },

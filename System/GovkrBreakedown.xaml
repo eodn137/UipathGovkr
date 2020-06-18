@@ -1,15 +1,16 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="GovkrBreakedown" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="GovkrBreakedown" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:sic="clr-namespace:System.IO.Compression;assembly=System.IO.Compression.FileSystem" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_excelName" Type="InArgument(x:String)" />
     <x:Property Name="in_Gcount" Type="InOutArgument(x:Int32)" />
+    <x:Property Name="in_countRow" Type="InArgument(x:Int32)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1390.4,7341.6</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1390.4,8104.8</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GovkrBreakedown_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="24">
+    <scg:List x:TypeArguments="x:String" Capacity="48">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -34,6 +35,7 @@
       <x:String>System.Xml.Serialization</x:String>
       <x:String>UiPath.Excel</x:String>
       <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>System.IO.Compression</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -60,7 +62,8 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+      <AssemblyReference>System.IO.Compression</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <sap:WorkflowViewStateService.ViewState>
@@ -69,7 +72,7 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="GovkrBreakedown" sap:VirtualizedContainerService.HintSize="1400.8,7176.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="GovkrBreakedown" sap:VirtualizedContainerService.HintSize="1400.8,7940" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Int32" Name="test" />
       <Variable x:TypeArguments="x:Int32" Name="lastMonth" />
@@ -80,6 +83,7 @@
       <Variable x:TypeArguments="x:String" Name="roop" />
       <Variable x:TypeArguments="x:Int32" Default="2" Name="GCount" />
       <Variable x:TypeArguments="x:String" Name="completed" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dateSample" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -250,40 +254,40 @@
         </ui:Target>
       </ui:Click.Target>
     </ui:Click>
-    <Sequence DisplayName="데이터 스크래핑" sap:VirtualizedContainerService.HintSize="1359.2,5665.6" sap2010:WorkflowViewState.IdRef="Sequence_13">
+    <Sequence DisplayName="데이터 스크래핑" sap:VirtualizedContainerService.HintSize="1359.2,5812.8" sap2010:WorkflowViewState.IdRef="Sequence_13">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser '          Page'" sap:VirtualizedContainerService.HintSize="1317.6,5572.8" sap2010:WorkflowViewState.IdRef="BrowserScope_4" InformativeScreenshot="817c9fc2ed4521a6119910be58f5d591" Selector="&lt;html title='온라인 신청민원 | 민원신청 내역조회 | 정부24' /&gt;">
+      <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser '          Page'" sap:VirtualizedContainerService.HintSize="1317.6,5720" sap2010:WorkflowViewState.IdRef="BrowserScope_4" InformativeScreenshot="817c9fc2ed4521a6119910be58f5d591" Selector="&lt;html title='온라인 신청민원 | 민원신청 내역조회 | 정부24' /&gt;">
         <ui:BrowserScope.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1284,5425.6" sap2010:WorkflowViewState.IdRef="Sequence_12">
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1284,5572.8" sap2010:WorkflowViewState.IdRef="Sequence_12">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:ExtractData DelayBetweenPagesMS="{x:Null}" ContinueOnError="True" DataTable="[dataTable]" DisplayName="Extract Structured Data 'TABLE'" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest' /&gt;" sap:VirtualizedContainerService.HintSize="1242.4,107.2" sap2010:WorkflowViewState.IdRef="ExtractData_3" MaxNumberOfResults="0" NextLinkSelector="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;ul&amp;gt;li&amp;gt;a' href='https://www.gov.kr/mw/AA040MyResultsList.do?cp=2&amp;amp;T_MON=06&amp;amp;FROM_D*' idx='2' parentid='EncryptionAreaID_0' tag='A' /&gt;" SimulateClick="True">
+              <ui:ExtractData DelayBetweenPagesMS="{x:Null}" ContinueOnError="True" DataTable="[dateSample]" DisplayName="Extract Structured Data 'TABLE'" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest' /&gt;" sap:VirtualizedContainerService.HintSize="1242.4,107.2" sap2010:WorkflowViewState.IdRef="ExtractData_4" MaxNumberOfResults="0" NextLinkSelector="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;ul&amp;gt;li&amp;gt;a' href='https://www.gov.kr/mw/AA040MyResultsList.do?cp=2&amp;amp;T_MON=&amp;amp;FROM_DAT*' idx='2' parentid='EncryptionAreaID_0' tag='A' /&gt;" SimulateClick="True">
                 <ui:ExtractData.Target>
-                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="0d0f7efc-10cd-4297-a471-bb876983362a" InformativeScreenshot="96c70d9ac62cdcec89bdf89c8936d9dd" Selector="&lt;webctrl tag='TABLE' /&gt;" WaitForReady="COMPLETE">
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5907282b-ab63-46b6-8632-102f2a65c682" InformativeScreenshot="be4bf72e13b5b03fcbff304e61298579" Selector="&lt;webctrl tag='TABLE' /&gt;" WaitForReady="COMPLETE">
                     <ui:Target.TimeoutMS>
                       <InArgument x:TypeArguments="x:Int32" />
                     </ui:Target.TimeoutMS>
                   </ui:Target>
                 </ui:ExtractData.Target>
               </ui:ExtractData>
-              <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[dataTable]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="1242.4,4408" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+              <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[dateSample]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="1242.4,4555.2" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
                 <ui:ForEachRow.Body>
                   <ActivityAction x:TypeArguments="sd:DataRow">
                     <ActivityAction.Argument>
                       <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
                     </ActivityAction.Argument>
-                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1192.8,4259.2" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1192.8,4406.4" sap2010:WorkflowViewState.IdRef="Sequence_8">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -345,9 +349,9 @@
                           </Assign>
                         </If.Else>
                       </If>
-                      <If Condition="[rowvalue.Contains(setMonth)]" sap:VirtualizedContainerService.HintSize="1151.2,3407.2" sap2010:WorkflowViewState.IdRef="If_2">
+                      <If Condition="[rowvalue.Contains(setMonth)]" sap:VirtualizedContainerService.HintSize="1151.2,3554.4" sap2010:WorkflowViewState.IdRef="If_2">
                         <If.Then>
-                          <Sequence sap:VirtualizedContainerService.HintSize="1007.2,3257.6" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                          <Sequence sap:VirtualizedContainerService.HintSize="1007.2,3404.8" sap2010:WorkflowViewState.IdRef="Sequence_10">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -361,18 +365,18 @@
                                 <InArgument x:TypeArguments="x:Int32">[countRow+1]</InArgument>
                               </Assign.Value>
                             </Assign>
-                            <If Condition="[countRow =1]" sap:VirtualizedContainerService.HintSize="965.6,3064.8" sap2010:WorkflowViewState.IdRef="If_8">
+                            <If Condition="[countRow =1]" sap:VirtualizedContainerService.HintSize="965.6,3212" sap2010:WorkflowViewState.IdRef="If_8">
                               <If.Then>
-                                <Sequence sap:VirtualizedContainerService.HintSize="821.6,2915.2" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                                <Sequence sap:VirtualizedContainerService.HintSize="821.6,3062.4" sap2010:WorkflowViewState.IdRef="Sequence_22">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
                                   <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="780,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_12" Text="처리완료 처음부분 " />
-                                  <If Condition="[completed.Contains(&quot;처리완료&quot;)]" sap:VirtualizedContainerService.HintSize="780,2720" sap2010:WorkflowViewState.IdRef="If_5">
+                                  <If Condition="[completed.Contains(&quot;처리완료&quot;)]" sap:VirtualizedContainerService.HintSize="780,2867.2" sap2010:WorkflowViewState.IdRef="If_5">
                                     <If.Then>
-                                      <Sequence sap:VirtualizedContainerService.HintSize="636,2570.4" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                                      <Sequence sap:VirtualizedContainerService.HintSize="636,2717.6" sap2010:WorkflowViewState.IdRef="Sequence_16">
                                         <Sequence.Variables>
                                           <Variable x:TypeArguments="x:Boolean" Name="popupCheck" />
                                         </Sequence.Variables>
@@ -382,6 +386,18 @@
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
                                         <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="594.4,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_13" Text="처리완료는 들어왔어" />
+                                        <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element 'A '" sap:VirtualizedContainerService.HintSize="594.4,107.2" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_2">
+                                          <ui:WaitUiElementAppear.Target>
+                                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c8aa04a5-7a97-42b4-8342-31d61e30cf1e" InformativeScreenshot="5e2912cd1ac405d9556edc06347d6f5a" Selector="&lt;webctrl aaname='1페이지' parentid='EncryptionAreaID_0' tag='A' /&gt;">
+                                              <ui:Target.TimeoutMS>
+                                                <InArgument x:TypeArguments="x:Int32" />
+                                              </ui:Target.TimeoutMS>
+                                              <ui:Target.WaitForReady>
+                                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                                              </ui:Target.WaitForReady>
+                                            </ui:Target>
+                                          </ui:WaitUiElementAppear.Target>
+                                        </ui:WaitUiElementAppear>
                                         <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'A '" sap:VirtualizedContainerService.HintSize="594.4,107.2" sap2010:WorkflowViewState.IdRef="Click_6" KeyModifiers="None" MouseButton="BTN_LEFT">
                                           <ui:Click.CursorPosition>
                                             <ui:CursorPosition Position="Center">
@@ -675,5 +691,40 @@
         </ui:BrowserScope.Body>
       </ui:BrowserScope>
     </Sequence>
+    <If Condition="[in_countRow &lt; in_Gcount]" sap:VirtualizedContainerService.HintSize="1359.2,576" sap2010:WorkflowViewState.IdRef="If_10">
+      <If.Then>
+        <Sequence DisplayName="Zipping Files" sap:VirtualizedContainerService.HintSize="304.8,426.4" sap2010:WorkflowViewState.IdRef="Sequence_26">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="x:String" Name="zipPath" />
+            <Variable x:TypeArguments="x:String" Name="extractPath" />
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign sap:VirtualizedContainerService.HintSize="263.2,60" sap2010:WorkflowViewState.IdRef="Assign_17">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[zipPath]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">["C:\Users\lenovo\Documents\UiPath\Govkr_Report\주민등록표"]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <Assign sap:VirtualizedContainerService.HintSize="263.2,60" sap2010:WorkflowViewState.IdRef="Assign_18">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[extractPath]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">["C:\Users\lenovo\Documents\UiPath\Govkr_Report\주민등록표.zip"]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <InvokeMethod DisplayName="Invoke method" sap:VirtualizedContainerService.HintSize="263.2,133.6" sap2010:WorkflowViewState.IdRef="InvokeMethod_3" MethodName="CreateFromDirectory" TargetType="sic:ZipFile">
+            <InArgument x:TypeArguments="x:String">[zipPath]</InArgument>
+            <InArgument x:TypeArguments="x:String">[extractPath]</InArgument>
+          </InvokeMethod>
+        </Sequence>
+      </If.Then>
+    </If>
   </Sequence>
 </Activity>
