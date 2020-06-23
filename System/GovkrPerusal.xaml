@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="GovkrPerusal" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="GovkrPerusal" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_excelName" Type="InArgument(x:String)" />
     <x:Property Name="in_Gcount" Type="InOutArgument(x:Int32)" />
@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1785.6,2856.8</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1785.6,2920.8</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GovkrPerusal_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="22">
@@ -59,15 +59,14 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="GovkrPerusal" sap:VirtualizedContainerService.HintSize="1796,2692" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="GovkrPerusal" sap:VirtualizedContainerService.HintSize="1796,2756" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="appDay" />
       <Variable x:TypeArguments="x:String" Name="appMonth" />
       <Variable x:TypeArguments="x:String" Name="appYear" />
-      <Variable x:TypeArguments="x:String" Name="day" />
       <Variable x:TypeArguments="x:String" Name="perpose" />
       <Variable x:TypeArguments="x:String" Name="BirthYear" />
       <Variable x:TypeArguments="x:String" Name="BirthMonth" />
@@ -76,16 +75,14 @@
       <Variable x:TypeArguments="x:String" Name="birth" />
       <Variable x:TypeArguments="x:String" Name="app" />
       <Variable x:TypeArguments="x:Int32" Default="2" Name="writeCount" />
-      <Variable x:TypeArguments="sd:DataTable" Name="sampleDate" />
-      <Variable x:TypeArguments="x:Boolean" Name="checkExist" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1754.4,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;GovkrPeruasl 들어왔다&quot;]" />
-    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser 'iexplore.exe 민원신청서작성'" sap:VirtualizedContainerService.HintSize="1754.4,232" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="8811851e88ad5b15fa8190b46fd7c943" Selector="&lt;html title='민원신청서작성 &amp;gt; 주민등록표 열람 &amp;gt; 주민등록열람신청발급서 :정부24' /&gt;">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1754.4,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;-- GovkrPeruasl in --&quot;]" />
+    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="정부24 민원신청서 화면 확인" sap:VirtualizedContainerService.HintSize="1754.4,232" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="8811851e88ad5b15fa8190b46fd7c943" Selector="&lt;html title='민원신청서작성 &amp;gt; 주민등록표 열람 &amp;gt; 주민등록열람신청발급서 :정부24' /&gt;">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
@@ -101,7 +98,7 @@
         </ActivityAction>
       </ui:BrowserScope.Body>
     </ui:BrowserScope>
-    <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element 'DIV'" sap:VirtualizedContainerService.HintSize="1754.4,107.2" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_1">
+    <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="내용 확인" sap:VirtualizedContainerService.HintSize="1754.4,107.2" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_1">
       <ui:WaitUiElementAppear.Target>
         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7cee34e1-88b4-437a-a88b-f712b5f9a8ca" InformativeScreenshot="08cec3bd4e469cf54bc7c7e66625065b" Selector="&lt;html title='민원신청서작성 &amp;gt; 주민등록표 열람 &amp;gt; 주민등록열람신청발급서 :정부24' /&gt;&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div' idx='5' tag='DIV' /&gt;">
           <ui:Target.TimeoutMS>
@@ -113,14 +110,19 @@
         </ui:Target>
       </ui:WaitUiElementAppear.Target>
     </ui:WaitUiElementAppear>
-    <Parallel sap:VirtualizedContainerService.HintSize="1754.4,743.2" sap2010:WorkflowViewState.IdRef="Parallel_2">
+    <Parallel sap2010:Annotation.AnnotationText="정보들을 각각 빨리 가져오기 위해서 Parallel을 사용하였습니다." sap:VirtualizedContainerService.HintSize="1754.4,774.4" sap2010:WorkflowViewState.IdRef="Parallel_2">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
       <Sequence sap:VirtualizedContainerService.HintSize="375.2,696.8" sap2010:WorkflowViewState.IdRef="Sequence_12">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'DIV'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="GetValue_9">
+        <ui:GetValue ContinueOnError="{x:Null}" DisplayName="이름 값 가져오기" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="GetValue_9">
           <ui:GetValue.Target>
             <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="139cf8d8-8c85-4dbc-9125-f464c49317bb" InformativeScreenshot="59fbc3f220d47db0e85e9959c63b65d3" Selector="&lt;html title='민원신청서작성 &amp;gt; 주민등록표 열람 &amp;gt; 주민등록열람신청발급서 :정부24' /&gt;&lt;webctrl aaname=' ' idx='1' parentid='main' tag='DIV' /&gt;">
               <ui:Target.TimeoutMS>
@@ -135,7 +137,7 @@
             <OutArgument x:TypeArguments="x:String">[name]</OutArgument>
           </ui:GetValue.Value>
         </ui:GetValue>
-        <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="333.6,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_12" Text="[name + &quot;name값입니다.&quot;]" />
+        <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="333.6,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_12" Text="[&quot;이름은 &quot; + name + &quot;입니다.&quot;]" />
       </Sequence>
       <Sequence sap:VirtualizedContainerService.HintSize="375.2,696.8" sap2010:WorkflowViewState.IdRef="Sequence_13">
         <sap:WorkflowViewStateService.ViewState>
@@ -143,7 +145,7 @@
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'DIV'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="GetValue_10">
+        <ui:GetValue ContinueOnError="{x:Null}" DisplayName="year도값 가져오기" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="GetValue_10">
           <ui:GetValue.Target>
             <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d08af0b3-c3d4-44bd-8651-fb32c958d5c1" InformativeScreenshot="6c3850ed3b9f6dbdb439af48baf5d60b" Selector="&lt;html title='민원신청서작성 &amp;gt; 주민등록표 열람 &amp;gt; 주민등록열람신청발급서 :정부24' /&gt;&#xA;&lt;webctrl aaname=' ' css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;fieldset&amp;gt;form&amp;gt;fieldset&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' parentid='main' tag='DIV' idx='1' /&gt;&#xA;">
               <ui:Target.TimeoutMS>
@@ -158,7 +160,7 @@
             <OutArgument x:TypeArguments="x:String">[BirthYear]</OutArgument>
           </ui:GetValue.Value>
         </ui:GetValue>
-        <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'DIV'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="GetValue_11">
+        <ui:GetValue ContinueOnError="{x:Null}" DisplayName="month값 가져오기" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="GetValue_11">
           <ui:GetValue.Target>
             <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="42ead6e4-f4b2-4465-9862-6c88dd335dff" InformativeScreenshot="1578beed30bcbb68c7df9d36e7eeb319" Selector="&lt;html title='민원신청서작성 &amp;gt; 주민등록표 열람 &amp;gt; 주민등록열람신청발급서 :정부24' /&gt;&lt;webctrl aaname=' ' css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;fieldset&amp;gt;form&amp;gt;fieldset&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' idx='2' parentid='main' tag='DIV' /&gt;">
               <ui:Target.TimeoutMS>
@@ -173,7 +175,7 @@
             <OutArgument x:TypeArguments="x:String">[BirthMonth]</OutArgument>
           </ui:GetValue.Value>
         </ui:GetValue>
-        <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'DIV'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="GetValue_12">
+        <ui:GetValue ContinueOnError="{x:Null}" DisplayName="day값 가져오기" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="GetValue_12">
           <ui:GetValue.Target>
             <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7311910d-c718-425c-90c8-d9ba5261ee51" InformativeScreenshot="4bc8848eb5072ba4327e732d7f46f034" Selector="&lt;html title='민원신청서작성 &amp;gt; 주민등록표 열람 &amp;gt; 주민등록열람신청발급서 :정부24' /&gt;&lt;webctrl aaname=' ' css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;fieldset&amp;gt;form&amp;gt;fieldset&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' idx='3' parentid='main' tag='DIV' /&gt;">
               <ui:Target.TimeoutMS>
@@ -188,8 +190,7 @@
             <OutArgument x:TypeArguments="x:String">[BirthDay]</OutArgument>
           </ui:GetValue.Value>
         </ui:GetValue>
-        <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="333.6,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_13" Text="[BirthYear.trim  + BirthMonth.trim + BirthDay.trim + &quot;생년월일입니다.&quot;]" />
-        <Assign sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="Assign_7">
+        <Assign DisplayName="생년월일을 각각의 값에 맞춰 대입" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="Assign_7">
           <Assign.To>
             <OutArgument x:TypeArguments="x:String">[birth]</OutArgument>
           </Assign.To>
@@ -197,6 +198,7 @@
             <InArgument x:TypeArguments="x:String" xml:space="preserve">[BirthYear.trim  + BirthMonth.trim + BirthDay.trim]</InArgument>
           </Assign.Value>
         </Assign>
+        <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="333.6,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_17" Text="[&quot;생년월일은 &quot; +birth + &quot;입니다.&quot;]" />
       </Sequence>
       <Sequence sap:VirtualizedContainerService.HintSize="375.2,696.8" sap2010:WorkflowViewState.IdRef="Sequence_14">
         <sap:WorkflowViewStateService.ViewState>
@@ -204,7 +206,7 @@
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'DIV'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="GetValue_13">
+        <ui:GetValue ContinueOnError="{x:Null}" DisplayName="용도및 목적 가져오기" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="GetValue_13">
           <ui:GetValue.Target>
             <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b4903f27-4370-42e6-91ad-8b44e10b6451" InformativeScreenshot="075bf86d0be9371965196b83d50d6b0f" Selector="&lt;html title='민원신청서작성 &amp;gt; 주민등록표 열람 &amp;gt; 주민등록열람신청발급서 :정부24' /&gt;&lt;webctrl aaname=' ' css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;fieldset&amp;gt;form&amp;gt;fieldset&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' idx='2' parentid='main' tag='DIV' /&gt;">
               <ui:Target.TimeoutMS>
@@ -219,7 +221,7 @@
             <OutArgument x:TypeArguments="x:String">[perpose]</OutArgument>
           </ui:GetValue.Value>
         </ui:GetValue>
-        <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="333.6,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_14" Text="[perpose + &quot;용도및 목적입니다.&quot;]" />
+        <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="333.6,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_14" Text="[&quot;용도및 목적은 &quot; + perpose + &quot;입니다.&quot;]" />
       </Sequence>
       <Sequence sap:VirtualizedContainerService.HintSize="375.2,696.8" sap2010:WorkflowViewState.IdRef="Sequence_15">
         <sap:WorkflowViewStateService.ViewState>
@@ -227,7 +229,7 @@
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'DIV'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="GetValue_14">
+        <ui:GetValue ContinueOnError="{x:Null}" DisplayName="year값 가져오기" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="GetValue_14">
           <ui:GetValue.Target>
             <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="682f02c5-9afc-434c-bc13-e3d088ac209e" InformativeScreenshot="b97182fa903eb62bc74878140f7a1a6c" Selector="&lt;html title='민원신청서작성 &amp;gt; 주민등록표 열람 &amp;gt; 주민등록열람신청발급서 :정부24' /&gt;&lt;webctrl aaname=' ' css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;fieldset&amp;gt;form&amp;gt;fieldset&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' idx='5' parentid='main' tag='DIV' /&gt;">
               <ui:Target.TimeoutMS>
@@ -242,7 +244,7 @@
             <OutArgument x:TypeArguments="x:String">[appYear]</OutArgument>
           </ui:GetValue.Value>
         </ui:GetValue>
-        <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'DIV'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="GetValue_15">
+        <ui:GetValue ContinueOnError="{x:Null}" DisplayName="month값 가져오기" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="GetValue_15">
           <ui:GetValue.Target>
             <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="50ce7249-b21d-4cd8-9e5e-75d5b50872bb" InformativeScreenshot="83bf3cdc7807ed62f5bd5cd89dd71789" Selector="&lt;html title='민원신청서작성 &amp;gt; 주민등록표 열람 &amp;gt; 주민등록열람신청발급서 :정부24' /&gt;&lt;webctrl aaname=' ' css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;fieldset&amp;gt;form&amp;gt;fieldset&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' idx='6' parentid='main' tag='DIV' /&gt;">
               <ui:Target.TimeoutMS>
@@ -257,7 +259,7 @@
             <OutArgument x:TypeArguments="x:String">[appMonth]</OutArgument>
           </ui:GetValue.Value>
         </ui:GetValue>
-        <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'DIV'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="GetValue_16">
+        <ui:GetValue ContinueOnError="{x:Null}" DisplayName="day값 가져오기" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="GetValue_16">
           <ui:GetValue.Target>
             <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5766af33-9e88-4b8e-982b-50d01ad69d80" InformativeScreenshot="64b166eb920c12b892366f547d996f34" Selector="&lt;html title='민원신청서작성 &amp;gt; 주민등록표 열람 &amp;gt; 주민등록열람신청발급서 :정부24' /&gt;&lt;webctrl aaname=' ' css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;fieldset&amp;gt;form&amp;gt;fieldset&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' idx='7' parentid='main' tag='DIV' /&gt;">
               <ui:Target.TimeoutMS>
@@ -272,8 +274,7 @@
             <OutArgument x:TypeArguments="x:String">[appDay]</OutArgument>
           </ui:GetValue.Value>
         </ui:GetValue>
-        <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="333.6,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_15" Text="[appYear.trim  + appMonth.trim  + appDay.trim + &quot;작성일입니다.&quot;]" />
-        <Assign sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="Assign_8">
+        <Assign DisplayName="신청일을 각각의 값에 맞춰 대입" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="Assign_8">
           <Assign.To>
             <OutArgument x:TypeArguments="x:String">[app]</OutArgument>
           </Assign.To>
@@ -281,9 +282,10 @@
             <InArgument x:TypeArguments="x:String" xml:space="preserve">[appYear.trim  + appMonth.trim  + appDay.trim]</InArgument>
           </Assign.Value>
         </Assign>
+        <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="333.6,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_15" Text="[&quot;신청일은 &quot; +app + &quot;입니다.&quot;]" />
       </Sequence>
     </Parallel>
-    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="1754.4,776.8" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_3" WorkbookPath="[&quot;C:\Users\lenovo\Documents\UiPath\Govkr_Report\개인정보\&quot;+in_excelName]">
+    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="excelFile에 가져온 값 넣어주기" sap:VirtualizedContainerService.HintSize="1754.4,776.8" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_3" WorkbookPath="[&quot;C:\Users\lenovo\Documents\UiPath\Govkr_Report\개인정보\&quot;+in_excelName]">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
@@ -299,20 +301,12 @@
             <ui:ExcelWriteCell Cell="[&quot;C&quot;+in_Gcount.ToString]" DisplayName="생년월일" sap:VirtualizedContainerService.HintSize="333.6,88" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_2" SheetName="Sheet1" Text="[birth]" />
             <ui:ExcelWriteCell Cell="[&quot;D&quot;+in_Gcount.ToString]" DisplayName="용도및목적" sap:VirtualizedContainerService.HintSize="333.6,88" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_3" SheetName="Sheet1" Text="[perpose]" />
             <ui:ExcelWriteCell Cell="[&quot;F&quot;+in_Gcount.ToString]" DisplayName="신청서" sap:VirtualizedContainerService.HintSize="333.6,88" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_4" SheetName="Sheet1" Text="[app]" />
-            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="333.6,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_16" Text="[in_Gcount.ToString]" />
+            <WriteLine DisplayName="행 값 확인하기" sap:VirtualizedContainerService.HintSize="333.6,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_16" Text="[&quot;현재 진행되고 있는 행은 &quot; +in_Gcount.ToString+&quot;입니다.&quot;]" />
           </Sequence>
         </ActivityAction>
       </ui:ExcelApplicationScope.Body>
     </ui:ExcelApplicationScope>
-    <Assign sap:VirtualizedContainerService.HintSize="1754.4,60" sap2010:WorkflowViewState.IdRef="Assign_5">
-      <Assign.To>
-        <OutArgument x:TypeArguments="x:Int32">[writeCount]</OutArgument>
-      </Assign.To>
-      <Assign.Value>
-        <InArgument x:TypeArguments="x:Int32">[writeCount +1]</InArgument>
-      </Assign.Value>
-    </Assign>
-    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser 'iexplore.exe 민원신청서작성'" sap:VirtualizedContainerService.HintSize="1754.4,347.2" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="adba616550054d60d7bad3284da9bc66" Selector="&lt;html title='민원신청서작성 &amp;gt; 주민등록표 열람 &amp;gt; 주민등록열람신청발급서 :정부24' /&gt;">
+    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="민원신청서 페이지 확인" sap:VirtualizedContainerService.HintSize="1754.4,347.2" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="adba616550054d60d7bad3284da9bc66" Selector="&lt;html title='민원신청서작성 &amp;gt; 주민등록표 열람 &amp;gt; 주민등록열람신청발급서 :정부24' /&gt;">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
@@ -324,7 +318,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'BUTTON  btn_end'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="민원신청버튼 클릭" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
               <ui:Click.CursorPosition>
                 <ui:CursorPosition Position="Center">
                   <ui:CursorPosition.OffsetX>
@@ -350,5 +344,6 @@
         </ActivityAction>
       </ui:BrowserScope.Body>
     </ui:BrowserScope>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1754.4,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;-- GovkrPerusal out --&quot;]" />
   </Sequence>
 </Activity>

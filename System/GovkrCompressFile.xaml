@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="GovkrCompressFile" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sic="clr-namespace:System.IO.Compression;assembly=System.IO.Compression.FileSystem" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="GovkrCompressFile" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sic="clr-namespace:System.IO.Compression;assembly=System.IO.Compression.FileSystem" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_countRow" Type="InArgument(x:Int32)" />
     <x:Property Name="in_TransactionNumber" Type="InArgument(x:Int32)" />
@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>994.4,833.6</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>824,1159.2</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GovkrCompressFile_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -57,16 +57,22 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="GovkrCompressFile" sap:VirtualizedContainerService.HintSize="524.8,668.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="GovkrCompressFile" sap:VirtualizedContainerService.HintSize="524.8,994.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <If Condition="[in_countRow+1 = in_TransactionNumber]" sap:VirtualizedContainerService.HintSize="483.2,576" sap2010:WorkflowViewState.IdRef="If_1">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="483.2,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;-- GovkrCompressFile in --&quot;]" />
+    <If sap2010:Annotation.AnnotationText="countRow의 값은 그대로인 반면 Transaction의 값은 반복할때마다 증가한다. 마지막으로 실행될때 행의 수보다 큼으로 행의 수에 1을 더하여 마지막에 실행될 때 실행되도록 한다." Condition="[in_countRow+1 = in_TransactionNumber]" sap:VirtualizedContainerService.HintSize="483.2,636" sap2010:WorkflowViewState.IdRef="If_1">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
       <If.Then>
         <Sequence DisplayName="Zipping Files" sap:VirtualizedContainerService.HintSize="304.8,426.4" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <Sequence.Variables>
@@ -78,7 +84,7 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Assign sap:VirtualizedContainerService.HintSize="263.2,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+          <Assign DisplayName="압축시킬 파일위치" sap:VirtualizedContainerService.HintSize="263.2,60" sap2010:WorkflowViewState.IdRef="Assign_1">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[zipPath]</OutArgument>
             </Assign.To>
@@ -86,7 +92,7 @@
               <InArgument x:TypeArguments="x:String">["C:\Users\lenovo\Documents\UiPath\Govkr_Report\주민등록표"]</InArgument>
             </Assign.Value>
           </Assign>
-          <Assign sap:VirtualizedContainerService.HintSize="263.2,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+          <Assign DisplayName="압축한 파일 위치" sap:VirtualizedContainerService.HintSize="263.2,60" sap2010:WorkflowViewState.IdRef="Assign_2">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[extractPath]</OutArgument>
             </Assign.To>
@@ -94,12 +100,13 @@
               <InArgument x:TypeArguments="x:String">["C:\Users\lenovo\Documents\UiPath\Govkr_Report\주민등록표.zip"]</InArgument>
             </Assign.Value>
           </Assign>
-          <InvokeMethod DisplayName="Invoke method" sap:VirtualizedContainerService.HintSize="263.2,133.6" sap2010:WorkflowViewState.IdRef="InvokeMethod_1" MethodName="CreateFromDirectory" TargetType="sic:ZipFile">
+          <InvokeMethod DisplayName="압축하기" sap:VirtualizedContainerService.HintSize="263.2,133.6" sap2010:WorkflowViewState.IdRef="InvokeMethod_1" MethodName="CreateFromDirectory" TargetType="sic:ZipFile">
             <InArgument x:TypeArguments="x:String">[zipPath]</InArgument>
             <InArgument x:TypeArguments="x:String">[extractPath]</InArgument>
           </InvokeMethod>
         </Sequence>
       </If.Then>
     </If>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="483.2,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;-- GovkrCompressFile out --&quot;]" />
   </Sequence>
 </Activity>
