@@ -153,7 +153,7 @@
             </ui:ExcelApplicationScope.Body>
           </ui:ExcelApplicationScope>
           <WriteLine DisplayName="정상,오류난 횟수 출력" sap:VirtualizedContainerService.HintSize="736.8,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_5" Text="[&quot;정상적으로 작동한 수는 &quot; + appCount.ToString + &quot;이고 오류가 난 수는 &quot; + applCount.ToString + &quot;이다.&quot;]" />
-          <ui:SendOutlookMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Account="eodn137@gmail.com" Body="[&quot;정상 &quot;+appCount.ToString+&quot;건, 오류&quot;+applCount.ToString+&quot;건.&quot;]" DisplayName="메일보내기" sap:VirtualizedContainerService.HintSize="736.8,146.4" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" IsBodyHtml="False" IsDraft="False" Subject="주민등록표송부" To="h-park@zerobacokr.com">
+          <ui:SendOutlookMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Account="eodn137@gmail.com" Body="[&quot;정상 &quot;+appCount.ToString+&quot;건, 오류&quot;+applCount.ToString+&quot;건.&quot;]" DisplayName="메일보내기" sap:VirtualizedContainerService.HintSize="736.8,146.4" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" IsBodyHtml="False" IsDraft="False" Subject="주민등록표송부" To="eodn137@naver.com">
             <ui:SendOutlookMail.Files>
               <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
                 <InArgument x:TypeArguments="x:String">C:\Users\lenovo\Documents\UiPath\Govkr_Report\주민등록표.zip</InArgument>

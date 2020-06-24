@@ -434,7 +434,7 @@
                                           </sap:WorkflowViewStateService.ViewState>
                                           <ui:UiElementExists sap2010:Annotation.AnnotationText="신청일순으로 이뤄져 있어 1페이지 제일 위에 가장 최근 신청한 문서가 있다. &#xA;하여 1페이지로 돌아간다." DisplayName="1페이지 확인하기" Exists="[onePage]" sap:VirtualizedContainerService.HintSize="594.4,167.2" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
                                             <ui:UiElementExists.Target>
-                                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b6a327bb-13d5-480a-9e3d-d53cd0e0d077" InformativeScreenshot="8afa3d474b916aa4c223cbd3e77ca6fe" Selector="&lt;webctrl aaname='1페이지' parentid='EncryptionAreaID_0' tag='A' /&gt;">
+                                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b6a327bb-13d5-480a-9e3d-d53cd0e0d077" InformativeScreenshot="8afa3d474b916aa4c223cbd3e77ca6fe" Selector="&lt;webctrl id='srch' tag='BUTTON' /&gt;">
                                                 <ui:Target.TimeoutMS>
                                                   <InArgument x:TypeArguments="x:Int32" />
                                                 </ui:Target.TimeoutMS>
@@ -468,7 +468,7 @@
                                                   </ui:CursorPosition>
                                                 </ui:Click.CursorPosition>
                                                 <ui:Click.Target>
-                                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ab5e34a1-86af-4c6a-a389-6ec9542ef9bd" InformativeScreenshot="45a717bf65c53b9d1c8b659c7d992dd2" Selector="&lt;webctrl aaname='1페이지' parentid='EncryptionAreaID_0' tag='A' /&gt;&#xA;">
+                                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ab5e34a1-86af-4c6a-a389-6ec9542ef9bd" InformativeScreenshot="45a717bf65c53b9d1c8b659c7d992dd2" Selector="&lt;webctrl id='srch' tag='BUTTON' /&gt;">
                                                     <ui:Target.TimeoutMS>
                                                       <InArgument x:TypeArguments="x:Int32" />
                                                     </ui:Target.TimeoutMS>
