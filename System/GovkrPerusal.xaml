@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1785.6,2920.8</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1785.6,2583.2</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GovkrPerusal_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="22">
@@ -62,7 +62,7 @@
       <AssemblyReference>UiPath.Mail</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="GovkrPerusal" sap:VirtualizedContainerService.HintSize="1796,2756" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="GovkrPerusal" sap:VirtualizedContainerService.HintSize="1796,2418.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="appDay" />
       <Variable x:TypeArguments="x:String" Name="appMonth" />
@@ -285,23 +285,25 @@
         <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="333.6,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_15" Text="[&quot;신청일은 &quot; +app + &quot;입니다.&quot;]" />
       </Sequence>
     </Parallel>
-    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="excelFile에 가져온 값 넣어주기" sap:VirtualizedContainerService.HintSize="1754.4,776.8" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_3" WorkbookPath="[&quot;C:\Users\lenovo\Documents\UiPath\Govkr_Report\개인정보\&quot;+in_excelName]">
+    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="excelFile에 가져온 값 넣어주기" sap:VirtualizedContainerService.HintSize="1754.4,439.2" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_3" WorkbookPath="[&quot;C:\Users\lenovo\Documents\UiPath\Govkr_Report\개인정보\&quot;+in_excelName]">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="375.2,667.2" sap2010:WorkflowViewState.IdRef="Sequence_10">
+          <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="1629.6,329.6" sap2010:WorkflowViewState.IdRef="Sequence_10">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:ExcelWriteCell Cell="[&quot;B&quot;+in_Gcount.ToString]" DisplayName="성명" sap:VirtualizedContainerService.HintSize="333.6,88" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_1" SheetName="Sheet1" Text="[name]" />
-            <ui:ExcelWriteCell Cell="[&quot;C&quot;+in_Gcount.ToString]" DisplayName="생년월일" sap:VirtualizedContainerService.HintSize="333.6,88" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_2" SheetName="Sheet1" Text="[birth]" />
-            <ui:ExcelWriteCell Cell="[&quot;D&quot;+in_Gcount.ToString]" DisplayName="용도및목적" sap:VirtualizedContainerService.HintSize="333.6,88" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_3" SheetName="Sheet1" Text="[perpose]" />
-            <ui:ExcelWriteCell Cell="[&quot;F&quot;+in_Gcount.ToString]" DisplayName="신청서" sap:VirtualizedContainerService.HintSize="333.6,88" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_4" SheetName="Sheet1" Text="[app]" />
-            <WriteLine DisplayName="행 값 확인하기" sap:VirtualizedContainerService.HintSize="333.6,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_16" Text="[&quot;현재 진행되고 있는 행은 &quot; +in_Gcount.ToString+&quot;입니다.&quot;]" />
+            <Parallel sap:VirtualizedContainerService.HintSize="1588,134.4" sap2010:WorkflowViewState.IdRef="Parallel_3">
+              <ui:ExcelWriteCell Cell="[&quot;B&quot;+in_Gcount.ToString]" DisplayName="성명" sap:VirtualizedContainerService.HintSize="333.6,88" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_1" SheetName="Sheet1" Text="[name]" />
+              <ui:ExcelWriteCell Cell="[&quot;C&quot;+in_Gcount.ToString]" DisplayName="생년월일" sap:VirtualizedContainerService.HintSize="333.6,88" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_2" SheetName="Sheet1" Text="[birth]" />
+              <ui:ExcelWriteCell Cell="[&quot;D&quot;+in_Gcount.ToString]" DisplayName="용도및목적" sap:VirtualizedContainerService.HintSize="333.6,88" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_3" SheetName="Sheet1" Text="[perpose]" />
+              <ui:ExcelWriteCell Cell="[&quot;F&quot;+in_Gcount.ToString]" DisplayName="신청서" sap:VirtualizedContainerService.HintSize="333.6,88" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_4" SheetName="Sheet1" Text="[app]" />
+            </Parallel>
+            <WriteLine DisplayName="행 값 확인하기" sap:VirtualizedContainerService.HintSize="1588,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_16" Text="[&quot;현재 진행되고 있는 행은 &quot; +in_Gcount.ToString+&quot;입니다.&quot;]" />
           </Sequence>
         </ActivityAction>
       </ui:ExcelApplicationScope.Body>

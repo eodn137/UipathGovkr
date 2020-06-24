@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1432,8378.4</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1620,8108</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GovkrBreakedown_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="25">
@@ -72,13 +72,13 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence sap:VirtualizedContainerService.HintSize="1442.4,8213.6" sap2010:WorkflowViewState.IdRef="Sequence_24">
+  <Sequence sap:VirtualizedContainerService.HintSize="1630.4,7943.2" sap2010:WorkflowViewState.IdRef="Sequence_24">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="GovkrBreakedown" sap:VirtualizedContainerService.HintSize="1400.8,8120.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence DisplayName="GovkrBreakedown" sap:VirtualizedContainerService.HintSize="1588.8,7850.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:Int32" Name="test" />
         <Variable x:TypeArguments="x:Int32" Name="lastMonth" />
@@ -96,8 +96,8 @@
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1359.2,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;-- GovkrBreakedow in --&quot;]" />
-      <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="서비스신청내역 페이지 확인" sap:VirtualizedContainerService.HintSize="1359.2,232" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="c297c9a8ca0de55c758e8175f55174ea" Selector="&lt;html title='*' /&gt;">
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1547.2,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;-- GovkrBreakedow in --&quot;]" />
+      <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="서비스신청내역 페이지 확인" sap:VirtualizedContainerService.HintSize="1547.2,232" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="c297c9a8ca0de55c758e8175f55174ea" Selector="&lt;html title='*' /&gt;">
         <ui:BrowserScope.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
@@ -113,7 +113,7 @@
           </ActivityAction>
         </ui:BrowserScope.Body>
       </ui:BrowserScope>
-      <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" DisplayName="신청내역 확인" sap:VirtualizedContainerService.HintSize="1359.2,107.2" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_1" WaitVisible="True">
+      <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" DisplayName="신청내역 확인" sap:VirtualizedContainerService.HintSize="1547.2,107.2" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_1" WaitVisible="True">
         <ui:WaitUiElementAppear.Target>
           <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="33c243f1-a5fc-4e4d-a6a1-09dd9252cdea" InformativeScreenshot="b443de2464a371bcc5cf2345efea1f52" Selector="&lt;html title='온라인 신청민원 | 민원신청 내역조회 | 정부24' /&gt;&lt;webctrl idx='1' tag='BODY' /&gt;">
             <ui:Target.TimeoutMS>
@@ -125,7 +125,7 @@
           </ui:Target>
         </ui:WaitUiElementAppear.Target>
       </ui:WaitUiElementAppear>
-      <If sap2010:Annotation.AnnotationText="날짜를 한달 전부터 검색을 해야한다.&#xA;해당 달의 -1을 하여 전달을 구하고 있는데, 1월달의 한달 전은 12월이다.&#xA;하여 1월달에는 예외적으로 12라는 값을 준다." Condition="[DateTime.Now.Month = 1]" DisplayName="if - 날짜 확인" sap:VirtualizedContainerService.HintSize="1359.2,269.6" sap2010:WorkflowViewState.IdRef="If_1">
+      <If sap2010:Annotation.AnnotationText="날짜를 한달 전부터 검색을 해야한다.&#xA;해당 달의 -1을 하여 전달을 구하고 있는데, 1월달의 한달 전은 12월이다.&#xA;하여 1월달에는 예외적으로 12라는 값을 준다." Condition="[DateTime.Now.Month = 1]" DisplayName="if - 날짜 확인" sap:VirtualizedContainerService.HintSize="1547.2,269.6" sap2010:WorkflowViewState.IdRef="If_1">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -152,7 +152,7 @@
           </Assign>
         </If.Else>
       </If>
-      <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element 'SELECT  f_mon'" sap:VirtualizedContainerService.HintSize="1359.2,107.2" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_2">
+      <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element 'SELECT  f_mon'" sap:VirtualizedContainerService.HintSize="1547.2,107.2" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_2">
         <ui:WaitUiElementAppear.Target>
           <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="aff2cef2-1e9d-4662-81f8-d5eb30267efc" InformativeScreenshot="6b909af675e07abe1a40ab4d46ca7eeb" Selector="&lt;html title='온라인 신청민원 | 민원신청 내역조회 | 정부24' /&gt;&lt;webctrl id='f_mon' tag='SELECT' /&gt;">
             <ui:Target.TimeoutMS>
@@ -164,7 +164,7 @@
           </ui:Target>
         </ui:WaitUiElementAppear.Target>
       </ui:WaitUiElementAppear>
-      <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Item 'SELECT  f_mon'" sap:VirtualizedContainerService.HintSize="1359.2,135.2" sap2010:WorkflowViewState.IdRef="SelectItem_2" Item="[lastMonth.ToString]">
+      <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Item 'SELECT  f_mon'" sap:VirtualizedContainerService.HintSize="1547.2,135.2" sap2010:WorkflowViewState.IdRef="SelectItem_2" Item="[lastMonth.ToString]">
         <ui:SelectItem.Items>
           <scg:List x:TypeArguments="x:String" Capacity="16">
             <x:String>1</x:String>
@@ -192,7 +192,7 @@
           </ui:Target>
         </ui:SelectItem.Target>
       </ui:SelectItem>
-      <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element 'SELECT  f_day'" sap:VirtualizedContainerService.HintSize="1359.2,107.2" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_3">
+      <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element 'SELECT  f_day'" sap:VirtualizedContainerService.HintSize="1547.2,107.2" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_3">
         <ui:WaitUiElementAppear.Target>
           <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6d89b52a-9b06-4cc2-9ec1-38814b548a32" InformativeScreenshot="684cb6382cccecc5bbb262621bbd42d1" Selector="&lt;html title='온라인 신청민원 | 민원신청 내역조회 | 정부24' /&gt;&lt;webctrl id='f_day' tag='SELECT' /&gt;">
             <ui:Target.TimeoutMS>
@@ -204,7 +204,7 @@
           </ui:Target>
         </ui:WaitUiElementAppear.Target>
       </ui:WaitUiElementAppear>
-      <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" sap2010:Annotation.AnnotationText="" DisplayName="Select - 1의 값으로 설정" sap:VirtualizedContainerService.HintSize="1359.2,166.4" sap2010:WorkflowViewState.IdRef="SelectItem_1" Item="1">
+      <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" sap2010:Annotation.AnnotationText="" DisplayName="Select - 1의 값으로 설정" sap:VirtualizedContainerService.HintSize="1547.2,166.4" sap2010:WorkflowViewState.IdRef="SelectItem_1" Item="1">
         <ui:SelectItem.Items>
           <scg:List x:TypeArguments="x:String" Capacity="32">
             <x:String>1</x:String>
@@ -256,7 +256,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:SelectItem>
-      <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click '단추  검색'" sap:VirtualizedContainerService.HintSize="1359.2,107.2" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT">
+      <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click '단추  검색'" sap:VirtualizedContainerService.HintSize="1547.2,107.2" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT">
         <ui:Click.CursorPosition>
           <ui:CursorPosition Position="Center">
             <ui:CursorPosition.OffsetX>
@@ -278,25 +278,25 @@
           </ui:Target>
         </ui:Click.Target>
       </ui:Click>
-      <Sequence DisplayName="데이터 스크래핑" sap:VirtualizedContainerService.HintSize="1359.2,6108" sap2010:WorkflowViewState.IdRef="Sequence_13">
+      <Sequence DisplayName="데이터 스크래핑" sap:VirtualizedContainerService.HintSize="1547.2,5837.6" sap2010:WorkflowViewState.IdRef="Sequence_13">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="데이터 스크래핑을 할 화면을 확인한다." sap:VirtualizedContainerService.HintSize="1317.6,6015.2" sap2010:WorkflowViewState.IdRef="BrowserScope_4" InformativeScreenshot="817c9fc2ed4521a6119910be58f5d591" Selector="&lt;html title='온라인 신청민원 | 민원신청 내역조회 | 정부24' /&gt;">
+        <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="데이터 스크래핑을 할 화면을 확인한다." sap:VirtualizedContainerService.HintSize="1505.6,5744.8" sap2010:WorkflowViewState.IdRef="BrowserScope_4" InformativeScreenshot="817c9fc2ed4521a6119910be58f5d591" Selector="&lt;html title='온라인 신청민원 | 민원신청 내역조회 | 정부24' /&gt;">
           <ui:BrowserScope.Body>
             <ActivityAction x:TypeArguments="x:Object">
               <ActivityAction.Argument>
                 <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
               </ActivityAction.Argument>
-              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1284,5868" sap2010:WorkflowViewState.IdRef="Sequence_12">
+              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1472,5597.6" sap2010:WorkflowViewState.IdRef="Sequence_12">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:ExtractData DelayBetweenPagesMS="{x:Null}" ContinueOnError="True" DataTable="[dateSample]" DisplayName="Extract Structured Data - 테이블의 값을 읽음." ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest' /&gt;" sap:VirtualizedContainerService.HintSize="1242.4,107.2" sap2010:WorkflowViewState.IdRef="ExtractData_4" MaxNumberOfResults="0" NextLinkSelector="&lt;html title='온라인 신청민원 | 민원신청 내역조회 | 정부24' /&gt;&lt;webctrl aaname='다음' parentid='EncryptionAreaID_0' tag='IMG' /&gt;" SimulateClick="True">
+                <ui:ExtractData DelayBetweenPagesMS="{x:Null}" ContinueOnError="True" DataTable="[dateSample]" DisplayName="Extract Structured Data - 테이블의 값을 읽음." ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest' /&gt;" sap:VirtualizedContainerService.HintSize="1430.4,107.2" sap2010:WorkflowViewState.IdRef="ExtractData_4" MaxNumberOfResults="0" NextLinkSelector="&lt;html title='온라인 신청민원 | 민원신청 내역조회 | 정부24' /&gt;&lt;webctrl aaname='다음' parentid='EncryptionAreaID_0' tag='IMG' /&gt;" SimulateClick="True">
                   <ui:ExtractData.Target>
                     <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5907282b-ab63-46b6-8632-102f2a65c682" InformativeScreenshot="be4bf72e13b5b03fcbff304e61298579" Selector="&lt;webctrl tag='TABLE' /&gt;" WaitForReady="COMPLETE">
                       <ui:Target.TimeoutMS>
@@ -305,13 +305,13 @@
                     </ui:Target>
                   </ui:ExtractData.Target>
                 </ui:ExtractData>
-                <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[dateSample]" DisplayName="테이블의 값을 통한 반복" sap:VirtualizedContainerService.HintSize="1242.4,4921.6" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+                <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[dateSample]" DisplayName="테이블의 값을 통한 반복" sap:VirtualizedContainerService.HintSize="1430.4,4651.2" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
                   <ui:ForEachRow.Body>
                     <ActivityAction x:TypeArguments="sd:DataRow">
                       <ActivityAction.Argument>
                         <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
                       </ActivityAction.Argument>
-                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1192.8,4772.8" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1380.8,4502.4" sap2010:WorkflowViewState.IdRef="Sequence_8">
                         <Sequence.Variables>
                           <Variable x:TypeArguments="x:String" Name="dataType" />
                         </Sequence.Variables>
@@ -320,51 +320,74 @@
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:GetRowItem Column="{x:Null}" ColumnName="{x:Null}" ColumnIndex="0" DisplayName="신청일 가져오기" sap:VirtualizedContainerService.HintSize="1151.2,64.8" sap2010:WorkflowViewState.IdRef="GetRowItem_2" Row="[row]">
-                          <ui:GetRowItem.Value>
-                            <OutArgument x:TypeArguments="x:String">[rowvalue]</OutArgument>
-                          </ui:GetRowItem.Value>
-                        </ui:GetRowItem>
-                        <ui:GetRowItem Column="{x:Null}" ColumnName="{x:Null}" ColumnIndex="4" DisplayName="처리상태 가져오기" sap:VirtualizedContainerService.HintSize="1151.2,64.8" sap2010:WorkflowViewState.IdRef="GetRowItem_3" Row="[row]">
-                          <ui:GetRowItem.Value>
-                            <OutArgument x:TypeArguments="x:String">[completed]</OutArgument>
-                          </ui:GetRowItem.Value>
-                        </ui:GetRowItem>
-                        <ui:GetRowItem Column="{x:Null}" ColumnName="{x:Null}" ColumnIndex="2" DisplayName="민원사무명 가져오기" sap:VirtualizedContainerService.HintSize="1151.2,64.8" sap2010:WorkflowViewState.IdRef="GetRowItem_4" Row="[row]">
-                          <ui:GetRowItem.Value>
-                            <OutArgument x:TypeArguments="x:String">[dataType]</OutArgument>
-                          </ui:GetRowItem.Value>
-                        </ui:GetRowItem>
-                        <Assign DisplayName="처리완료 값" sap:VirtualizedContainerService.HintSize="1151.2,60" sap2010:WorkflowViewState.IdRef="Assign_9">
-                          <Assign.To>
-                            <OutArgument x:TypeArguments="x:String">[completed]</OutArgument>
-                          </Assign.To>
-                          <Assign.Value>
-                            <InArgument x:TypeArguments="x:String">[completed.Substring(0,4)]</InArgument>
-                          </Assign.Value>
-                        </Assign>
-                        <Assign sap2010:Annotation.AnnotationText="신청일의 값을 비교가 편하도록 문자의 값을 바꿔준다." DisplayName="신청일 값" sap:VirtualizedContainerService.HintSize="1151.2,104" sap2010:WorkflowViewState.IdRef="Assign_3">
-                          <Assign.To>
-                            <OutArgument x:TypeArguments="x:String">[rowvalue]</OutArgument>
-                          </Assign.To>
-                          <Assign.Value>
-                            <InArgument x:TypeArguments="x:String">[rowvalue.Substring(17).Replace("[","").Replace("년","").Replace("월","").Replace("일","").Replace("]","").Replace(" ","")]</InArgument>
-                          </Assign.Value>
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                        </Assign>
-                        <Assign DisplayName="신청한 날의 월값 " sap:VirtualizedContainerService.HintSize="1151.2,60" sap2010:WorkflowViewState.IdRef="Assign_4">
-                          <Assign.To>
-                            <OutArgument x:TypeArguments="x:String">[setMonth]</OutArgument>
-                          </Assign.To>
-                          <Assign.Value>
-                            <InArgument x:TypeArguments="x:String">[DateTime.Now.toString("MM")]</InArgument>
-                          </Assign.Value>
-                        </Assign>
-                        <If sap2010:Annotation.AnnotationText="데이터테이블에서 가져온 신청일과 형식을 맞추기 위해서 if문을 돌린다." Condition="[setMonth.Substring(0,1).Equals(&quot;0&quot;)]" DisplayName="If " sap:VirtualizedContainerService.HintSize="1151.2,240.8" sap2010:WorkflowViewState.IdRef="If_3">
+                        <Parallel sap:VirtualizedContainerService.HintSize="1339.2,348" sap2010:WorkflowViewState.IdRef="Parallel_1">
+                          <Sequence sap:VirtualizedContainerService.HintSize="375.2,301.6" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:GetRowItem Column="{x:Null}" ColumnName="{x:Null}" ColumnIndex="0" DisplayName="신청일 가져오기" sap:VirtualizedContainerService.HintSize="333.6,64.8" sap2010:WorkflowViewState.IdRef="GetRowItem_2" Row="[row]">
+                              <ui:GetRowItem.Value>
+                                <OutArgument x:TypeArguments="x:String">[rowvalue]</OutArgument>
+                              </ui:GetRowItem.Value>
+                            </ui:GetRowItem>
+                            <Assign sap2010:Annotation.AnnotationText="신청일의 값을 비교가 편하도록 문자의 값을 바꿔준다." DisplayName="신청일 값" sap:VirtualizedContainerService.HintSize="333.6,104" sap2010:WorkflowViewState.IdRef="Assign_3">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[rowvalue]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">[rowvalue.Substring(17).Replace("[","").Replace("년","").Replace("월","").Replace("일","").Replace("]","").Replace(" ","")]</InArgument>
+                              </Assign.Value>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </Assign>
+                          </Sequence>
+                          <Sequence sap:VirtualizedContainerService.HintSize="375.2,301.6" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:GetRowItem Column="{x:Null}" ColumnName="{x:Null}" ColumnIndex="4" DisplayName="처리상태 가져오기" sap:VirtualizedContainerService.HintSize="333.6,64.8" sap2010:WorkflowViewState.IdRef="GetRowItem_3" Row="[row]">
+                              <ui:GetRowItem.Value>
+                                <OutArgument x:TypeArguments="x:String">[completed]</OutArgument>
+                              </ui:GetRowItem.Value>
+                            </ui:GetRowItem>
+                            <Assign DisplayName="처리완료 값" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="Assign_9">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[completed]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">[completed.Substring(0,4)]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </Sequence>
+                          <Sequence sap:VirtualizedContainerService.HintSize="375.2,301.6" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:GetRowItem Column="{x:Null}" ColumnName="{x:Null}" ColumnIndex="2" DisplayName="민원사무명 가져오기" sap:VirtualizedContainerService.HintSize="333.6,64.8" sap2010:WorkflowViewState.IdRef="GetRowItem_4" Row="[row]">
+                              <ui:GetRowItem.Value>
+                                <OutArgument x:TypeArguments="x:String">[dataType]</OutArgument>
+                              </ui:GetRowItem.Value>
+                            </ui:GetRowItem>
+                            <Assign DisplayName="신청한 날의 월값 " sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[setMonth]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">[DateTime.Now.toString("MM")]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </Sequence>
+                        </Parallel>
+                        <If sap2010:Annotation.AnnotationText="데이터테이블에서 가져온 신청일과 형식을 맞추기 위해서 if문을 돌린다." Condition="[setMonth.Substring(0,1).Equals(&quot;0&quot;)]" DisplayName="If " sap:VirtualizedContainerService.HintSize="1339.2,240.8" sap2010:WorkflowViewState.IdRef="If_3">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -391,7 +414,7 @@
                             </Assign>
                           </If.Else>
                         </If>
-                        <If sap2010:Annotation.AnnotationText="서류를 신청한 날이 오늘과 같고 민원 사무명이 같을 경우 적용되도록 if문 사용" Condition="[rowvalue.Contains(setMonth) And dataType.Contains(&quot;주민등록표의열람신청-(세대별)&quot;)]" sap:VirtualizedContainerService.HintSize="1151.2,3740.8" sap2010:WorkflowViewState.IdRef="If_2">
+                        <If sap2010:Annotation.AnnotationText="서류를 신청한 날이 오늘과 같고 민원 사무명이 같을 경우 적용되도록 if문 사용" Condition="[rowvalue.Contains(setMonth) And dataType.Contains(&quot;주민등록표의열람신청-(세대별)&quot;)]" sap:VirtualizedContainerService.HintSize="1339.2,3740.8" sap2010:WorkflowViewState.IdRef="If_2">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -456,7 +479,7 @@
                                               </scg:Dictionary>
                                             </sap:WorkflowViewStateService.ViewState>
                                             <If.Then>
-                                              <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="버튼클릭" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="Click_6" KeyModifiers="None" MouseButton="BTN_LEFT">
+                                              <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="버튼클릭" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="Click_6" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
                                                 <ui:Click.CursorPosition>
                                                   <ui:CursorPosition Position="Center">
                                                     <ui:CursorPosition.OffsetX>
