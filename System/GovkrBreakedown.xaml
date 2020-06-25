@@ -754,7 +754,7 @@
                     </ActivityAction>
                   </ui:ForEachRow.Body>
                 </ui:ForEachRow>
-                <If sap2010:Annotation.AnnotationText="신청건수가 1개라도 있을 경우 처리한다." Condition="[countRow &gt;0]" sap:VirtualizedContainerService.HintSize="1242.4,666.4" sap2010:WorkflowViewState.IdRef="If_4">
+                <If sap2010:Annotation.AnnotationText="신청건수가 1개라도 있을 경우 처리한다." Condition="[countRow &gt;0]" sap:VirtualizedContainerService.HintSize="1430.4,666.4" sap2010:WorkflowViewState.IdRef="If_4">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -793,8 +793,8 @@
           </ui:BrowserScope.Body>
         </ui:BrowserScope>
       </Sequence>
-      <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="1359.2,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_17" Text="[&quot;현재진행중인 상황은 &quot;+ in_countRow.toString +&quot;개의 행중에서 &quot;+ in_Gcount.toString + &quot;행에 입력중입니다.&quot;]" />
-      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1359.2,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;-- GovkrBreakedow out --&quot;]" />
+      <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="1547.2,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_17" Text="[&quot;현재진행중인 상황은 &quot;+ in_countRow.toString +&quot;개의 행중에서 &quot;+ in_Gcount.toString + &quot;행에 입력중입니다.&quot;]" />
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1547.2,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;-- GovkrBreakedow out --&quot;]" />
     </Sequence>
   </Sequence>
 </Activity>
